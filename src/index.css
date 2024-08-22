@@ -1,0 +1,266 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --default-spacing: 10px;
+  --default-margin: 1rem;
+  --medium-margin: 3rem;
+  --larger-margin: 5rem;
+  /* --primary-color: #76c0d7; */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--primary-color);
+}
+
+/* common css starts */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+margin-top: 50px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: var(--default-margin);
+  color: #000000;
+  text-decoration: underline;
+  
+}
+
+
+.search-section {
+  color: #fff;
+  margin-top: 70px;
+  margin-left: 400px;
+  --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+  width: 500px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #f7ba2b;
+  background: var(--background);
+  position: relative;
+  z-index: 4;
+  outline: none;
+  
+
+ }
+ .search-section input[type="search"] {
+  background: transparent;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  color: white;
+}
+ 
+ .search-section::after {
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 1px;
+  right: 3px;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(1);
+  filter: blur(25px);
+  background: #f7ba2b;
+  background: var(--background);
+  transition: opacity .5s;
+ }
+ 
+ .search-input{
+background: transparent;
+color: white;
+ }
+ .search-section .search-btn {
+  margin-left: var(--default-spacing);
+}
+
+ 
+ /*Hover*/
+ .search-section:hover::after {
+  opacity: 0;
+  border: none;
+ }
+ 
+ .search-section:hover .card-info {
+  color: #f7ba2b;
+  transition: color 1s;
+  border: none;
+ }
+ 
+
+.buttons {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--default-margin);
+  margin-top: var(--medium-margin);
+  margin-bottom: var(--larger-margin);
+}
+
+.buttons .btn,
+.buttons .btn:active,
+.buttons .btn:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+  background: blue;
+}
+
+/* From Uiverse.io by cssbuttons-io */ 
+
+
+.error-msg {
+  color: #ff0000;
+  text-align: center;
+}
+
+
+
+.loader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader div {
+  width: 16px;
+  height: 16px;
+  background-color: #0e8de2;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -1.1s;
+}
+.loader div:nth-child(3) {
+  animation-delay: -1.0s;
+}
+.loader div:nth-child(4) {
+  animation-delay: -0.9s;
+}
+.loader div:nth-child(5) {
+  animation-delay: -0.8s;
+}
+.loader div:nth-child(6) {
+  animation-delay: -0.7s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+ 
+ @keyframes loading-y0fdc1 {
+  0% {
+   transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+  }
+ 
+  50% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+  }
+ 
+  100% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+  }
+ }
+
+/* common css ends */
+
+
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: var(--default-margin);
+}
+
+.filters > * {
+  margin-top: 50px;
+  padding: 5px 10px;
+  background: #1e97d9;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* filters section ends */
+
+/* images section starts */
+
+.images {
+  margin-top: var(--medium-margin);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: var(--default-spacing);
+  justify-content: center;
+  align-items: center;
+}
+
+.images .image {
+  width: 200px;
+  height: 300px;
+  justify-self: center;
+  align-self: center;
+  margin-left: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.images .image:hover {
+  transform: translateY(-3px);
+}
+
+/* images section ends */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .search-section .search-input {
+    width: 100%;
+    min-width: unset;
+    margin: 0 var(--default-margin);
+  }
+
+  .images {
+    grid-template-columns: 1fr;
+  }
+}
